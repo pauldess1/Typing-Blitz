@@ -1,14 +1,19 @@
 # Type Speed Test
 
 Welcome to the **Type Speed Test**, an exciting game that allows you to test and improve your typing speed! This game challenges you to type a random phrase within a time limit and lets you track your performance.
-<img src="screen.gif" alt=>
+
 ## Table of Contents
 
+- [Demo](#demo)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Contributing](#contributing)
 - [More Things to add](#more-things-to-add)
+
+## Demo 
+
+![Demo](screen.gif)
 
 ## Features
 
