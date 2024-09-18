@@ -3,6 +3,7 @@ from pygame.locals import *
 import sys
 import time
 import random
+import Levenshtein
 
 class Game:
 
@@ -19,7 +20,7 @@ class Game:
         self.results = 'Time:0 Accuracy:0 % Wpm:0 '
         self.wpm = 0
         self.end = False
-        self.HEAD_C = (255,213,102)
+        self.HEAD_C = (255,255,255)
         self.TEXT_C = (240,240,240)
         self.RESULT_C = (255,70,70)
 
@@ -47,20 +48,15 @@ class Game:
         sentence = random.choice(sentences)
         return sentence
     
+    def levenshtein_accuracy(self):
+        return 100 - Levenshtein.distance(self.word, self.input_text)/len(self.word)*100
+    
     def show_results(self, screen):
         if(not self.end):
             #Time calculation
             self.total_time = time.time() - self.time_start
 
-            #Accuracy calculation
-            count = 0
-            for i,c in enumerate(self.word):
-                try:
-                    if self.input_text[i] == c:
-                        count += 1
-                except:
-                    pass
-            self.accuracy = count/len(self.word)*100
+            self.accuracy = self.levenshtein_accuracy()
 
             #WPM calculation
             self.wpm = len(self.input_text)*60/(5*self.total_time)
@@ -109,21 +105,27 @@ class Game:
                 
                 # Key entered
                 elif event.type == pygame.KEYDOWN:
-                    if self.active and not self.end:
-                        if event.key == pygame.K_RETURN:
-                            print(self.input_text)
-                            self.show_results(self.screen)
-                            print(self.results)
-                            self.draw_text(self.screen, self.results,350, 28, self.RESULT_C)
-                            self.end = True
-                            self.active = False
-                        elif event.key == pygame.K_BACKSPACE:
-                            self.input_text = self.input_text[:-1]
-                        else:
-                            try:
-                                self.input_text += event.unicode
-                            except:
-                                pass 
+                    if not self.end:
+                        if not self.active :
+                            self.active = True
+                            self.time_start = time.time()
+                            self.input_text = ''
+                            self.input_text += event.unicode
+                        else :
+                            if event.key == pygame.K_RETURN:
+                                print(self.input_text)
+                                self.show_results(self.screen)
+                                print(self.results)
+                                self.draw_text(self.screen, self.results,350, 28, self.RESULT_C)
+                                self.end = True
+                                self.active = False
+                            elif event.key == pygame.K_BACKSPACE:
+                                self.input_text = self.input_text[:-1]
+                            else:
+                                try:
+                                    self.input_text += event.unicode
+                                except:
+                                    pass 
                     elif self.end and not self.active: 
                         if event.key == pygame.K_RETURN:
                             self.reset_game()
@@ -131,11 +133,19 @@ class Game:
             pygame.display.update()
         clock.tick(60)
 
+
     def reset_game(self):
         self.screen.blit(self.open_img, (0,0))
 
         pygame.display.update()
-        time.sleep(1)
+        waiting = True
+        while waiting:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+                if event.type == pygame.KEYDOWN:
+                    waiting = False
 
         self.reset=False
         self.end = False
