@@ -1,7 +1,7 @@
 # Type Speed Test
 
 Welcome to the **Type Speed Test**, an exciting game that allows you to test and improve your typing speed! This game challenges you to type a random phrase within a time limit and lets you track your performance.
-
+<img src="screendemo.gif" alt=>
 ## Table of Contents
 
 - [Features](#features)
@@ -43,7 +43,7 @@ To play Type Speed Test, you need to clone the repository and install the necess
 4. Run the main
     ```bash
     python main.py
-    
+
 Now, you can play the game and test your typing speed!
 
 ## More Things to add
