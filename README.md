@@ -1,6 +1,6 @@
-# Type Speed Test
+# Typing Blitz
 
-Welcome to the **Type Speed Test**, an exciting game that allows you to test and improve your typing speed! This game challenges you to type a random phrase within a time limit and lets you track your performance.
+Welcome to the **Typing Blitz**, an exciting game that allows you to test and improve your typing speed! This game challenges you to type a random phrase within a time limit and lets you track your performance.
 
 ## Table of Contents
 
@@ -33,8 +33,8 @@ To play Type Speed Test, you need to clone the repository and install the necess
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/pauldess1/type-speed-test.git
-   cd type-speed-test
+   git clone https://github.com/pauldess1/Typing-Blitz.git
+   cd Typing-Blitz
 
 2. Create a virtual environment (optional but recommended):
     ```bash
