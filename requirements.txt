@@ -1,0 +1,4 @@
+# I used python 3.12.6 but all recent version of python must work
+pygame == 2.6.0
+python-levenshtein == 0.25.1
+

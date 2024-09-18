@@ -1,34 +1,36 @@
 # Type Speed Test
 
-Bienvenue dans le **Type Speed Test**, un jeu passionnant qui vous permet de tester et d'améliorer votre vitesse de frappe ! Ce jeu vous propose de taper une phrase aléatoire dans un temps imparti, et vous permet de suivre vos performances.
+Welcome to the **Type Speed Test**, an exciting game that allows you to test and improve your typing speed! This game challenges you to type a random phrase within a time limit and lets you track your performance.
 
-## Table des matières
+## Table of Contents
 
-- [Fonctionnalités](#fonctionnalités)
-- [Technologies utilisées](#technologies-utilisées)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
 - [Installation](#installation)
-- [Comment jouer](#comment-jouer)
-- [Démonstration](#démonstration)
-- [Contributions](#contributions)
-- [Licences](#licences)
+- [Contributing](#contributing)
+- [More Things to add](#more-things-to-add)
 
-## Fonctionnalités
+## Features
 
-- Testez votre vitesse de frappe en temps réel.
-- Affichage de votre précision et de votre vitesse en mots par minute (WPM).
-- Interface graphique intuitive.
+- Test your typing speed in real-time.
+- Display your accuracy and speed in words per minute (WPM).
+- Intuitive graphical interface.
 
-## Technologies utilisées
+## Technologies Used
 
 - Python
 - Pygame
-- Distance de levenshtein
+- Levenshtein Distance
 
 ## Installation
 
-Pour jouer à Type Speed Test, vous devez d'abord cloner le dépôt et installer les dépendances nécessaires :
+To play Type Speed Test, you need to clone the repository and install the necessary dependencies:
 
-1. Clonez le dépôt :
+1. Clone the repository:
    ```bash
    git clone https://github.com/pauldess1/type-speed-test.git
-   cd Typing-Speed-Test
+   cd type-speed-test
+
+## More Things to add
+- Possibility to choose the level of sentences
+- Scores and Leaderboards
