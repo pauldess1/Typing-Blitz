@@ -35,12 +35,34 @@ class Game:
         pygame.display.set_caption('Type Speed test')
     
     
-    def draw_text(self, screen, msg, y ,fsize, color):
+    def draw_text(self, screen, msg, y, fsize, color):
         font = pygame.font.Font(None, fsize)
-        text = font.render(msg, 1,color)
-        text_rect = text.get_rect(center=(self.w/2, y))
-        screen.blit(text, text_rect)
+        words = msg.split(' ')
+        lines = []
+        current_line = ""
+    
+        for word in words:
+            # Vérifier si l'ajout du mot dépasse la largeur
+            test_line = current_line + word + " "
+            text_surface = font.render(test_line, True, color)
+    
+            if text_surface.get_width() <= self.w - 100:  # Laisse de l'espace sur les côtés
+                current_line = test_line
+            else:
+                lines.append(current_line)
+                current_line = word + " "
+        
+        # Ajouter la dernière ligne
+        lines.append(current_line)
+    
+        # Dessiner chaque ligne
+        for i, line in enumerate(lines):
+            text = font.render(line.strip(), True, color)
+            text_rect = text.get_rect(center=(self.w / 2, y + i * (fsize + 5)))
+            screen.blit(text, text_rect)
+    
         pygame.display.update()
+
 
     def get_sentence(self):
         f = open('sentences.txt').read()
