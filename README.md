@@ -31,6 +31,21 @@ To play Type Speed Test, you need to clone the repository and install the necess
    git clone https://github.com/pauldess1/type-speed-test.git
    cd type-speed-test
 
+2. Create a virtual environment (optional but recommended):
+    ```bash
+    python -m venv env
+    source env/bin/activate  # On Windows use `env\Scripts\activate`
+
+3. Install the required libraries:
+    ```bash
+    pip install -r requirements.txt
+
+4. Run the main
+    ```bash
+    python main.py
+    
+Now, you can play the game and test your typing speed!
+
 ## More Things to add
 - Possibility to choose the level of sentences
 - Scores and Leaderboards
